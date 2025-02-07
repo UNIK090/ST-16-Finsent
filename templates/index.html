@@ -1,61 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial News Sentiment Analysis</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f4f4f9;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sentiment analysis of financial news to help understand emotions and trends in market reports.">
+    <title>Sentiment Analysis for Financial News</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #121212, #2c2c2c, #212121, #424242, #616161, #757575); /* Dark gradient */
+            background-size: 600% 600%;
+            animation: gradientAnimation 10s ease infinite; /* Background animation */
+            color: #e0e0e0; /* Light text color */
+            animation: fadeIn 1.5s ease-in-out; /* Fade in the whole page */
+        }
 
-    .container {
-      text-align: center;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
-    }
+        footer {
+            background-color: #1c1c1c; /* Dark footer */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-    h1 {
-      font-size: 1.8rem;
-      color: #333;
-      margin-bottom: 20px;
-    }
+        /* Main Section */
+        .main-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: slideInUp 1s ease-out; /* Slide in the main content */
+        }
 
-    button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      color: #fff;
-      background: #4CAF50;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+        .content {
+            text-align: center;
+        }
 
-    button:hover {
-      background: #45a049;
-    }
-  </style>
+        .header h1 {
+            font-size: 2.5em;
+            color: #F44336; /* Red color for title */
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #b0bec5; /* Lighter gray for text contrast */
+        }
+
+        /* Financial News Section */
+        .financial-news {
+            margin: 20px 0;
+            animation: slideInLeft 1s ease-out; /* Slide in the news ticker */
+        }
+
+        .news-ticker {
+            background-color: #333; /* Dark background for news ticker */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
+        }
+
+        .news-ticker p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #e0e0e0; /* Light text color for readability */
+        }
+
+        /* Red Highlights */
+        .highlight {
+            color: #F44336; /* Red text for highlights */
+        }
+
+        /* Button Styles */
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .predict-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #F44336; /* Red button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Add scale effect */
+        }
+
+        .predict-btn:hover {
+            background-color: #D32F2F; /* Darker red on hover for the button */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to Financial News Sentiment Analysis</h1>
-    <form action="/predict" method="POST">
-      <label for="inputData">Enter your data for prediction:</label>
-      <input type="text" id="inputData" name="inputData" required>
-      <button type="submit">Predict</button>
-    </form>
-  </div>
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="content">
+            <div class="header">
+                <h1>Sentiment Analysis for Financial News</h1>
+                <p>Leverage sentiment analysis to understand the underlying emotions and trends in financial news.</p>
+            </div>
+
+            <!-- Financial News Section -->
+            <div class="financial-news">
+                <div class="news-ticker">
+                    <p>Breaking News: <span class="highlight">Stock market sees volatility amidst economic shifts</span>. Experts predict a downturn...</p>
+                </div>
+                <div class="news-ticker">
+                    <p>Tech Stocks Surge: <span class="highlight">Apple and Microsoft rise</span>, analysts suggest promising future. Investors are optimistic...</p>
+                </div>
+            </div>
+
+            <!-- Predict Sentiment Button -->
+            <div class="button-container">
+                <button id="predict-btn" class="predict-btn">Predict Sentiment</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 SentimentAnalyzer | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript to handle the button click and redirection -->
+    <script>
+        document.getElementById('predict-btn').addEventListener('click', function() {
+            // Optionally show a loading message or animation before redirecting
+            alert('Redirecting to sentiment prediction...');
+            window.location.href = '/predict'; // Redirect to /predict
+        });
+    </script>
 </body>
 </html>
+
