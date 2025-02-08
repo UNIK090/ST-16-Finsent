@@ -4,58 +4,156 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Financial News Sentiment Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #ffffff;
       height: 100vh;
-      background: #f4f4f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
     }
 
-    .container {
-      text-align: center;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.8;
+    }
+    
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10;
     }
 
-    h1 {
+    .navbar .logo {
       font-size: 1.8rem;
-      color: #333;
-      margin-bottom: 20px;
+      font-weight: bold;
+      color: #6200ea;
     }
 
-    button {
-      padding: 10px 20px;
-      font-size: 1rem;
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li {
+      display: inline;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #ffffff;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #6200ea;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    .typing-text {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ffffff;
+      border-right: 3px solid #6200ea;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 2s steps(20, end) forwards, blink 0.6s infinite;
+    }
+
+    .subtext {
+      font-size: 2rem;
+      color: #cccccc;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out forwards;
+      animation-delay: 2s;
+    }
+
+    .predict-btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
       color: #fff;
-      background: #4CAF50;
+      background: linear-gradient(45deg, #6200ea, #3700b3);
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s;
     }
 
-    button:hover {
-      background: #45a049;
+    .predict-btn:hover {
+      background: rgb(111, 101, 136);
+      box-shadow: 0px 8px 20px rgba(173, 159, 207, 0.8);
+      transform: scale(1.1);
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to Financial News Sentiment Analysis</h1>
-    <form action="/predict" method="POST">
-      <label for="inputData">Enter your data for prediction:</label>
-      <input type="text" id="inputData" name="inputData" required>
-      <button type="submit">Predict</button>
-    </form>
+  <video autoplay muted loop>
+    <source src="./vid/x.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <nav class="navbar">
+    <div class="logo">FINSENT</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="content" id="home">
+    <div class="typing-text">Financial News</div>
+    <div class="subtext">Sentiment Analysis</div>
+    <button class="predict-btn" onclick="window.location.href='/predict'">Predict Now</button>
   </div>
+
+  <section id="about" style="text-align: center; padding: 50px; background: rgba(0, 0, 0, 0.9); color: white; width: 100%;">
+    <h2>About Us</h2>
+    <p>We provide real-time sentiment analysis on financial news to help investors make informed decisions.</p>
+  </section>
 </body>
 </html>
