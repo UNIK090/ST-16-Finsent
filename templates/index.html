@@ -11,15 +11,14 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #121212, #2c2c2c, #212121, #424242, #616161, #757575); /* Dark gradient */
+            background: linear-gradient(45deg, #121212, #2c2c2c, #212121, #424242, #616161, #757575);
             background-size: 600% 600%;
-            animation: gradientAnimation 10s ease infinite; /* Background animation */
-            color: #e0e0e0; /* Light text color */
-            animation: fadeIn 1.5s ease-in-out; /* Fade in the whole page */
+            animation: gradientAnimation 10s ease infinite, fadeIn 1.5s ease-in-out;
+            color: #e0e0e0;
         }
 
         footer {
-            background-color: #1c1c1c; /* Dark footer */
+            background-color: #1c1c1c;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -33,7 +32,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            animation: slideInUp 1s ease-out; /* Slide in the main content */
         }
 
         .content {
@@ -42,37 +40,38 @@
 
         .header h1 {
             font-size: 2.5em;
-            color: #F44336; /* Red color for title */
+            color: #F44336;
+            animation: bounceIn 1s ease-out;
         }
 
         .header p {
             font-size: 1.2em;
-            color: #b0bec5; /* Lighter gray for text contrast */
+            color: #b0bec5;
         }
 
         /* Financial News Section */
         .financial-news {
             margin: 20px 0;
-            animation: slideInLeft 1s ease-out; /* Slide in the news ticker */
+            animation: slideInLeft 1s ease-out;
         }
 
         .news-ticker {
-            background-color: #333; /* Dark background for news ticker */
+            background-color: #333;
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
         }
 
         .news-ticker p {
             font-size: 1.1em;
             line-height: 1.6;
-            color: #e0e0e0; /* Light text color for readability */
+            color: #e0e0e0;
         }
 
         /* Red Highlights */
         .highlight {
-            color: #F44336; /* Red text for highlights */
+            color: #F44336;
         }
 
         /* Button Styles */
@@ -83,63 +82,48 @@
         .predict-btn {
             padding: 15px 30px;
             font-size: 1.2em;
-            background-color: #F44336; /* Red button */
+            background-color: #F44336;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Add scale effect */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            animation: pulse 1.5s infinite;
         }
 
         .predict-btn:hover {
-            background-color: #D32F2F; /* Darker red on hover for the button */
-            transform: scale(1.05); /* Slightly enlarge the button on hover */
+            background-color: #D32F2F;
+            transform: scale(1.05);
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes slideInLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-
     </style>
 </head>
 <body>
@@ -176,11 +160,10 @@
     <!-- JavaScript to handle the button click and redirection -->
     <script>
         document.getElementById('predict-btn').addEventListener('click', function() {
-            // Optionally show a loading message or animation before redirecting
             alert('Redirecting to sentiment prediction...');
-            window.location.href = '/predict'; // Redirect to /predict
+            window.location.href = '/predict';
         });
     </script>
+    
 </body>
 </html>
-
