@@ -14,7 +14,7 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      background: #000;
+      
       color: #ffffff;
       height: 100vh;
       display: flex;
@@ -51,7 +51,7 @@
     .navbar .logo {
       font-size: 1.8rem;
       font-weight: bold;
-      color: #6200ea;
+      color:rgb(246, 243, 62);
     }
 
     .navbar ul {
@@ -82,7 +82,7 @@
     .typing-text {
       font-size: 3rem;
       font-weight: bold;
-      color: #ffffff;
+      color:rgb(246, 243, 62);
       border-right: 3px solid #6200ea;
       width: 0;
       overflow: hidden;
@@ -132,8 +132,9 @@
   </style>
 </head>
 <body>
+  <!-- Updated video path -->
   <video autoplay muted loop>
-    <source src="./vid/x.mp4" type="video/mp4">
+    <source src="{{ url_for('static', filename='vid/x.mp4') }}" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
