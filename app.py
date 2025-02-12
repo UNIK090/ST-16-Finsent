@@ -1,19 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, jsonify, render_template
+from scripts.predict import predict_sentiment
+
 app = Flask(__name__)
 
 @app.route("/")
-def index():
+def home():
     return render_template("index.html")
 
-@app.route("/predict",methods=["GET", "POST"]) 
-
+@app.route("/predict", methods=["POST"])
 def predict():
-    if request.method =="POST" :
-        msg=request.form.get("message")
-        print(msg)
-    else:
-        return render_template("predict.html")
-    #return render_template("predict.html")
+    data = request.get_json()
+    text = data.get("text", "")
+    sentiment = predict_sentiment(text)
+    return jsonify({"sentiment": sentiment})
 
-if __name__ == '__main__':
-    app.run(host ="0.0.0.0" , port= 5050)
+if __name__ == "__main__":
+    app.run(debug=True)
