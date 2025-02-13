@@ -61,7 +61,7 @@ def predict_sentiment(text):
     return prediction[0]  # Extract first value from NumPy array
 
 if __name__ == "__main__":
-    print("Enter a tweet: ", end="")
+    print("Enter the financial news : ", end="")
     test_text = input().strip()
 
     sentiment = predict_sentiment(test_text)
