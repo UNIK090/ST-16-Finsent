@@ -63,20 +63,6 @@
         .form-group button:hover {
             background-color: #ff2a3d;
         }
-        .no-sentiment-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            border: 1px solid #555;
-            border-radius: 4px;
-            color: #ff4b5c;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .no-sentiment-btn:hover {
-            background-color: #444;
-        }
         /* Headlines ticker with smooth scrolling */
         .ticker-container {
             position: absolute;
@@ -94,7 +80,7 @@
         }
         .ticker-wrapper p {
             margin: 0;
-            padding-right: 50px; /* Spacing between repeated headlines */
+            padding-right: 50px;
             color: #ff4b5c;
             font-size: 14px;
         }
@@ -181,14 +167,6 @@
         .light-theme .ticker-wrapper p {
             color: #d32f2f;
         }
-        .light-theme .no-sentiment-btn {
-            background-color: #eee;
-            border: 1px solid #ccc;
-            color: #d32f2f;
-        }
-        .light-theme .no-sentiment-btn:hover {
-            background-color: #ddd;
-        }
     </style>
 </head>
 <body>
@@ -210,9 +188,6 @@
             </div>
             <div class="form-group">
                 <button type="submit">Analyze Sentiment</button>
-            </div>
-            <div class="form-group">
-                <button type="button" class="no-sentiment-btn" onclick="document.getElementById('message').value = '';">No Sentiment</button>
             </div>
         </form>
     </div>
