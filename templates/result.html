@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Result</title>
+    <style>
+        body {
+            background: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .result-box {
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .positive {
+            background: #00ff88;
+            color: #121212;
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+        .neutral {
+            background: #999;
+            color: #121212;
+            box-shadow: 0 0 20px #999;
+        }
+
+        .negative {
+            background: #ff4444;
+            color: #121212;
+            box-shadow: 0 0 20px #ff4444;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #6a6aff;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #5959ff;
+        }
+
+        .back-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Financial News Sentiment Analysis Result</h1>
+    <div class="result-box" id="result">{{ sentiment }}</div>
+    <button class="back-button" onclick="goBack()">Analyze Another</button>
+
+    <script>
+        const resultBox = document.getElementById('result');
+        const sentiment = resultBox.innerText.trim().toLowerCase();
+
+        if (sentiment.includes("positive")) {
+            resultBox.classList.add("positive");
+        } else if (sentiment.includes("neutral")) {
+            resultBox.classList.add("neutral");
+        } else if (sentiment.includes("negative")) {
+            resultBox.classList.add("negative");
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
