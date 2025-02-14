@@ -18,8 +18,8 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #121212;
+            color: #ffffff;
             text-align: center;
             padding: 50px;
             transition: background-color 0.3s, color 0.3s;
@@ -31,12 +31,12 @@
         }
 
         h1 {
-            color: #007bff;
+            color: #fcfcfc;
             animation: fadeIn 1.5s ease-in-out;
         }
 
         .news-ticker {
-            background-color: #e9ecef;
+            background-color: #333;
             padding: 10px;
             overflow: hidden;
             white-space: nowrap;
@@ -45,30 +45,21 @@
             border-radius: 5px;
         }
 
-        .dark-mode .news-ticker {
-            background-color: #333;
-        }
-
         .ticker-text {
             display: inline-block;
             animation: ticker 15s linear infinite;
-            color: #007bff;
+            color: #f9f9f9;
         }
 
         .info-box {
-            background-color: white;
+            background-color: #222;
             padding: 20px;
             border-radius: 10px;
             width: 60%;
             margin: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
             animation: fadeIn 2s ease-in-out;
             text-align: justify;
-        }
-
-        .dark-mode .info-box {
-            background-color: #222;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
         }
 
         .dark-mode-toggle {
@@ -79,7 +70,7 @@
             font-size: 16px;
             border: none;
             background: #434040;
-            color: #333;
+            color: #ffffff;
             cursor: pointer;
             border-radius: 5px;
             transition: 0.3s;
@@ -108,16 +99,12 @@
         }
 
         .chart-box {
-            background: white;
+            background: #222;
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
             width: 45%;
             height: 300px;
-        }
-
-        .dark-mode .chart-box {
-            background: #222;
         }
 
         canvas {
@@ -126,8 +113,9 @@
         }
     </style>
 </head>
-<body>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+<body class="dark-mode">
+
+    
     <h1>Financial News Sentiment Prediction</h1>
 
     <div class="news-ticker">
